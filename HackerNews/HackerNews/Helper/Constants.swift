@@ -8,4 +8,9 @@
 
 import Foundation
 
-
+struct Constants {
+    
+    static var ARTICLE: Int = 0
+    static var COMMENT: Int = 1
+    
+}

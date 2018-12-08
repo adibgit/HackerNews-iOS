@@ -16,10 +16,10 @@ class News: Mappable {
     var id          : String?
     var kids        : [Int]?
     var score       : Int?
-    var time        : CUnsignedLongLong?
+    var time        : Double?
     var title       : String?
     var type        : String?
-    var url         : URL?
+    var url         : String?
     
     required init?(map: Map) {}
     

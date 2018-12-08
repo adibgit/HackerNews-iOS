@@ -32,7 +32,6 @@ class NewsViewModel {
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    print(String(describing: response.result.value))
                     onGetTopStoriesID.onGetTopStoriesIDSuccess(storiesID: response.result.value as! [Int])
                 case .failure:
                     onGetTopStoriesID.onGetTopStoriesIDFail(error: response.result.description)
@@ -50,7 +49,6 @@ class NewsViewModel {
             .responseObject { (response: DataResponse<News>) in
                 switch response.result {
                 case .success:
-                    print(String(describing: response.result.value))
                     onGetNews.onGetNewsSuccess(news: response.result.value!)
                 case .failure:
                     onGetNews.onGetNewsFail(error: response.result.description)

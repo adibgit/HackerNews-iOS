@@ -8,11 +8,16 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 extension NewsViewController {
     
     func setupView() {
         setupStatusBar()
+        setupBaseView()
+        setupTable()
+        
+        parentView.bringSubviewToFront(loadingView)
     }
     
     fileprivate func setupStatusBar() {
@@ -22,7 +27,26 @@ extension NewsViewController {
         }
     }
     
+    fileprivate func setupBaseView() {
+        parentView.addSubview(containerView)
+        containerView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+    }
     
+    fileprivate func setupTable() {
+        containerView.addSubview(tableView)
+        tableView.snp.makeConstraints{ (make) in
+            make.edges.equalTo(parentView)
+        }
+    }
     
+    func showLoading(show: Bool) {
+        if (show) {
+            loadingView.isHidden = true
+        } else {
+            loadingView.isHidden = false
+        }
+    }
     
 }
